@@ -4,6 +4,5 @@ export interface HttpResponse {
 }
 
 export interface HttpRequest<T = any> {
-    file?: any,
-    body?: T
+    body: T
 }

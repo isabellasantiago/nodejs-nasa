@@ -1,3 +1,5 @@
+import { UserData } from "../ports/user-data";
+
 export interface Signup {
-    signup(email: string, password: string): Promise<void>
+    signup(user: UserData & { confirmPassowrd: string }): Promise<void>
 }

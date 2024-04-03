@@ -1,4 +1,6 @@
+import { UserData } from "./user-data"
+
 export interface UserRepository {
-    create(email: string, password: string): Promise<void>
-    findByEmail(email: string): Promise<void>
+    create(user: UserData): Promise<void>
+    findByEmail(email: string): Promise<UserData | null>
 }
