@@ -12,6 +12,8 @@ export class CryptPasswordService implements CryptPassword {
     }
 
     async uncrypt(dbPassword: string, password: string): Promise<boolean> {
-        return true
+        const checkPassword = await bcrypt.compare(password, dbPassword)
+
+        return checkPassword
     }
 }

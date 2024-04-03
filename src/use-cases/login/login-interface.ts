@@ -1,3 +1,5 @@
+import { UserData } from "../ports/user-data";
+
 export interface Login {
-    login(email: string, password: string): Promise<string>
+    login(user: UserData): Promise<string>
 }
