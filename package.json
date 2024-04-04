@@ -8,7 +8,8 @@
     "dev": "ts-node-dev --files src/server.ts",
     "generate": "npx prisma generate",
     "postbuild": "cp package*.json dist && cp prisma/schema.prisma dist/prisma && cd dist && npm ci --omit=dev",
-    "test": "vitest"
+    "test": "vitest",
+    "vercel-build": "echo hello"
   },
   "keywords": [],
   "author": "",
