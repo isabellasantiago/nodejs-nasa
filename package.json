@@ -9,7 +9,7 @@
     "generate": "npx prisma generate",
     "postbuild": "cp package*.json dist && cp prisma/schema.prisma dist/prisma && cd dist && npm ci --omit=dev",
     "test": "vitest",
-    "vercel-build": "npx prisma generate && tsc"
+    "vercel-build": "npx prisma generate"
   },
   "keywords": [],
   "author": "",
