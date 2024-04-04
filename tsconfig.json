@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "outDir": "dist",
+    "outDir": "./dist",
     "target": "esnext",                                 
     "module": "commonjs",
     "esModuleInterop": true,
@@ -9,5 +9,6 @@
     "skipLibCheck": true,
     "sourceMap": false
   },
-  "exclude": [ "dist"]
+  "include": ["src/**/*"],
+  "exclude": [ "node_modules", "**/*.spec.ts"]
 }
