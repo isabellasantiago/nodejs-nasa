@@ -5,17 +5,17 @@ import { InvalidPasswordException, UserNotFoundException, ValidateException } fr
 import { badRequest, notFoundRequest, ok, serverError } from "../helpers/http-helper";
 
 export class LoginController implements Controller {
-    constructor(private readonly usecase: Login){}
-    
+    constructor(private readonly usecase: Login) { }
+
     async handle(httpRequest: HttpRequest<UserData>): Promise<HttpResponse> {
         try {
             const token = await this.usecase.login(httpRequest.body)
 
             return ok(token)
         } catch (error: any) {
-            if(error instanceof UserNotFoundException) return notFoundRequest(error)
+            if (error instanceof UserNotFoundException) return notFoundRequest(error)
 
-            if(error instanceof ValidateException || error instanceof InvalidPasswordException) return badRequest(error)
+            if (error instanceof ValidateException || error instanceof InvalidPasswordException) return badRequest(error)
 
             return serverError(error)
         }

@@ -13,10 +13,10 @@ export class SignupUseCase implements Signup {
         private readonly cryptService: CryptPassword
     ) { }
 
-    async signup(user: UserData & { confirmPassowrd: string }): Promise<void> {
+    async signup(user: UserData & { confirmPassword: string }): Promise<void> {
         const [_, exists] = await Promise.all([this.validator.validate(user, signupSchema), this.repository.findByEmail(user.email)])
 
-        if (exists) throw new UserAlreadyExistsException()
+        if (!!exists) throw new UserAlreadyExistsException()
 
         const passwordHash = await this.cryptService.crypt(user.password)
 

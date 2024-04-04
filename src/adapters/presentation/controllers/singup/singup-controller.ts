@@ -8,7 +8,7 @@ import { Controller, HttpRequest, HttpResponse } from "../ports";
 export class SignupController  implements Controller {
     constructor(private readonly usecase: Signup){}
     
-    async handle(httpRequest: HttpRequest<UserData & {confirmPassowrd: string}>): Promise<HttpResponse> {
+    async handle(httpRequest: HttpRequest<UserData & {confirmPassword: string}>): Promise<HttpResponse> {
         try {
             await this.usecase.signup(httpRequest.body)
 
